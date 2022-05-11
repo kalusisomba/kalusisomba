@@ -1,0 +1,33 @@
+<form [formGroup]="createForm" (ngSubmit)="onSubmit(createForm)">
+
+    <div class="card card-secondary">
+        <div class="card-header">
+            <h3 class="card-title ml-3"> searchKeyword</h3>
+
+        </div>
+        <!-- /.card-header -->
+
+        <div class="card-body">
+
+            <div class="row">
+
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="searchKeyword">Search Keyword</label>
+                        <input type="text" formControlName="searchKeyword" class="form-control" placeholder="search Keyword" />
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- /.card-body -->
+
+        <div class="card-footer">
+            <button class="btn btn-info" type="submit" [disabled]="!createForm.valid">Save</button>
+        </div>
+
+    </div>
+
+</form>
+

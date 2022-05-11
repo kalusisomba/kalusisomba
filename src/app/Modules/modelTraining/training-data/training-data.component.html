@@ -1,0 +1,72 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit(submitForm)">
+        <div class="card card-bg-secondary">
+            <div class="card-header">
+                <h2 for="trainingData" class="card-title px-2"> Training Data</h2>
+            </div>
+
+            <!-- <div class="card-body"> -->
+
+                <div class="form-group">
+
+                    <table class="table-bg table-bordered table-hover table-responsive">
+
+                        <thead class="bg-light">
+                            <tr>
+                                <th class="px-2" width="80px">NO.</th>
+                                <th class="px-2">Comment</th>
+                                <th class="px-2" width="120px">
+                                    <span class="form-check-inline">
+                                        <input type="checkbox" (click)="CheckAllOptions()" />
+                                    </span>
+                                </th>
+                                <th class="px-2" width="80px">Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr *ngFor="let trainingData of trainingDatas">
+                                <td class="text-sm px-2">{{ trainingData.comment_id }}</td>
+                                <td class="text-sm justify-content-between px-2">{{ trainingData.comment }}</td>
+                                <td class="px-2"><label>
+                                        <input type="checkbox" [value]="trainingData.is_positive"
+                                            [checked]="trainingData.is_positive" />
+                                        {{ trainingData.is_positive }}
+                                    </label>
+                                </td>
+                                <td class="px-2">
+                                    <div class="btn-toolbar justify-content-between">
+                                        <button type="button" (click)="deleteTrainingData(trainingData.comment_id)"
+                                            class="btn btn-danger btn-sm">Remove</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            <!-- </div> -->
+
+            <div class="card card-footer">
+                <div class="btn-toolbar justify-content-between">
+                    <div>
+                        <button class="btn btn-primary px-2" type="submit" (click)="save()"
+                            [disabled]="!form.valid">Submit All</button>
+                    </div>
+                    <div>
+                        <button class="btn btn-primary mr-2 text-right" type="button">Delete All</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+</form>
+<p>My cars:</p>
+<input type="checkbox" ng-model="all"> Check all<br><br>
+<input type="checkbox" ng-checked="all">Volvo<br>
+<input type="checkbox" ng-checked="all">Ford<br>
+<input type="checkbox" ng-checked="all">Mercedes
+<p>Click "Check all" to check all three cars.</p>
+

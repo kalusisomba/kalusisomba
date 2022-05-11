@@ -1,0 +1,35 @@
+<div class="container vh-100">
+    <div class="row justify-content-center h-100">
+        <div class="card my-auto shadow">
+            <div class="card-body px-5">
+                <!-- <div class="text-center">
+                    <fa-icon [icon]="faLock" class="fa-3x"></fa-icon>
+                </div> -->
+                <div class="text-center">
+                    <!-- <h2>Welcome</h2> -->
+                    <img id="profile-img" src="/assets/img/robot.png" class="profile-img-card" />
+                </div>
+                <p style="color: lightslategray; text-align: center;">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Please enter your login
+                    details&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                <form [formGroup]="loginForm" #f="ngForm" (ngSubmit)="onSubmit()">
+                    <div *ngIf="invalidLogin" class="alert alert-danger">
+                        Invalid username or password
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="username" placeholder="Username" class="form-control"
+                            formControlName="username" name="username" autocomplete="off" />
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="password" placeholder="Password" class="form-control"
+                            formControlName="password" name="password" />
+                    </div>
+                    <input type="submit" class="btn btn-info w-100" value="Login" name="">
+                </form>
+            </div>
+            <div class="card-footer text-right">
+                <small><a routerLink="../forgot-password">Forgot Password?</a></small>
+            </div>
+        </div>
+    </div>
+</div>
